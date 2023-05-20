@@ -5,7 +5,6 @@ import logo from "./logo.svg";
 import "./App.css";
 import { ethers } from "ethers";
 import ConnectButton from "./components/connectButton";
-import ClaimInfoes from "./components/claimInfoes";
 
 import Donate from "./pages/donate";
 import Explore from "./pages/explore";
@@ -145,7 +144,15 @@ function App() {
           <Route path="/explore/*" element={<Explore />} />
           <Route path="/nft/*" element={<Nft />} />
           <Route path="/nft/detail/:tokenId" element={<NftDetail />} />
-          <Route path="/donate/:fundraiseId" element={<Donate />} />
+          <Route
+            path="/donate"
+            element={
+              <Donate
+                currentAccount={currentAccount}
+                provider={donati_provider}
+              />
+            }
+          />
           <Route path="/claim/:fundraiseId" element={<Claim />} />
           <Route path="/" element={<Home connectWallet={connectWallet} />} />
         </Routes>
