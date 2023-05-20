@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import logo from "./logo.svg";
+
 import "./App.css";
 import { ethers } from "ethers";
 import ConnectButton from "./components/connectButton";
+import ClaimInfoes from "./components/claimInfoes";
 
 import Donate from "./pages/donate";
 import Explore from "./pages/explore";
@@ -23,7 +25,7 @@ function App() {
   const [correctNetwork, setCorrectNetwork] = useState(true);
 
   const { ethereum } = window;
-  const [quinoa_provider, setQuinoaProvider] = useState(
+  const [donati_provider, setDonatiProvider] = useState(
     new ethers.JsonRpcProvider(process.env.REACT_APP_DEVNET_RPC_URL || "")
   );
 
@@ -90,7 +92,7 @@ function App() {
       }
       console.log("Connected Network", chainId);
       console.log("Connected to Account: ", address[0]);
-      setCurrentAccount(address);
+      setCurrentAccount(address[0]);
     } catch (error) {
       console.log("Error connecting to metamask", error);
     }
