@@ -198,3 +198,24 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.nft_filter {
+  width: 390px;
+  height: 76px;
+  background-image: url(../../public/asset/nft_filter.png);
+  background-position: 0 0;
+  background-size: cover;
+  margin-top: 4px;
+}
+.nft_letter_wrap {
+  width: 390px;
+  height: 420px;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 19px;
+}
+.nft_letter {
+  width: 169px;
+  height: 227px;
+  border: 1px solid rgba(231, 231, 231, 1);
+  border-radius: 7px;
+}
