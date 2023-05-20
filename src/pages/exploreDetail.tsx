@@ -13,13 +13,7 @@ const ExploreDetail = (ethereum: any) => {
           <div className="exploredetail_back"></div>
         </a>
         <div className="exploredetail_img"></div>
-        <div className="donate_btn"></div>
-        <input
-          type="number"
-          id="donate_input"
-          name="donate_input"
-          placeholder="0.00"
-        ></input>
+        <Donate fundraiserAddress={fundraiseId} ethereum={ethereum} />
       </div>
     </div>
   );
