@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Write from "../components/write";
 import { Link } from "react-router-dom";
-import "./main.css";
-const Explore = () => {
+
+const Letter = () => {
   return (
     <div id="mainwrap">
       <div className="main">
@@ -9,12 +10,10 @@ const Explore = () => {
         <Link to="/">
           <div className="depth_nav"></div>
         </Link>
-        <Link to="/explore/0x9009c2253D2041Ee450F085f918B844b4E638b11">
-          <div className="explore_full_btn"></div>
-        </Link>
+        <Write />
       </div>
     </div>
   );
 };
 
-export default Explore;
+export default Letter;
