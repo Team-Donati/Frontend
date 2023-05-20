@@ -88,7 +88,7 @@
   width: 390px;
   height: 55px;
   position: fixed;
-  bottom: 0;
+  bottom: 47px;
   left: 0;
   right: 0;
   z-index: 999;
@@ -135,10 +135,66 @@
   bottom: 0;
 }
 .explore_full_btn {
+  margin-top: 13px;
   width: 390px;
-  height: 705px;
+  height: 750px;
   background-image: url(../../public/asset/explore_full_btn.png);
   background-position: 0 0;
   background-size: cover;
   cursor: pointer;
+}
+.exploredetail_back {
+  width: 390px;
+  height: 94px;
+  background-image: url(../../public/asset/full_depth_back.png);
+  background-position: 0 0;
+  background-size: cover;
+}
+.exploredetail_img {
+  width: 390px;
+  height: 644px;
+  background-image: url(../../public/asset/exploredetail_img.png);
+  background-position: 0 0;
+  background-size: cover;
+}
+.donate_btn {
+  width: 390px;
+  height: 106px;
+  background-image: url(../../public/asset/exploredetail_donate_btn.png);
+  background-position: 0 0;
+  background-size: cover;
+}
+#donate_input {
+  width: 352px;
+  height: 56px;
+  background-color: #fff;
+  z-index: 999;
+  position: absolute;
+  bottom: 92px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border: 1px solid #e7e7e7;
+  border-radius: 15px;
+  box-sizing: border-box;
+  text-indent: 38px;
+  font-size: 17px;
+  background-image: url(../../public/asset/avax.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-y: 50%;
+  background-position-x: 10px;
+}
+input:focus {
+  outline: none;
+  background-image: 0;
+}
+input::-webkit-input-placeholder {
+  color: #ababab;
+  font-size: 17px;
+  text-indent: 38px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
