@@ -12,6 +12,7 @@ import Nft from "./pages/nft";
 import Home from "./pages/home";
 import Claim from "./pages/claim";
 import ExploreDetail from "./pages/exploreDetail";
+import GenerateCode from "./pages/generateCode";
 
 type Network = {
   name: string;
@@ -159,6 +160,7 @@ function App() {
             }
           />
           <Route path="/claim/:fundraiseId" element={<Claim />} />
+          <Route path="/qr/:id1/:id2" element={<GenerateCode />} />
           <Route path="/" element={<Home connectWallet={connectWallet} />} />
         </Routes>
       </BrowserRouter>
