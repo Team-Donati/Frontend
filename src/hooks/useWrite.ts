@@ -2,14 +2,14 @@ import { useState, useEffect, useCallback } from "react";
 import { BigNumberish, ethers } from "ethers";
 import donaFT_abi from "../abis/DonaFT.json";
 
-export const useWrite = (nftAddess: string, content: string) => {
+export const useWrite = (nftAddress: string, content: string) => {
   const signer = new ethers.providers.Web3Provider(
     window.ethereum,
     "any"
   ).getSigner();
   const write = useCallback(
     async (content: string) => {
-      const donaFT = new ethers.Contract(nftAddess, donaFT_abi.abi, signer);
+      const donaFT = new ethers.Contract(nftAddress, donaFT_abi.abi, signer);
 
       try {
         const writeTx = await donaFT.updateLetter(content);
@@ -21,7 +21,7 @@ export const useWrite = (nftAddess: string, content: string) => {
         console.log(e);
       }
     },
-    [nftAddess, nftAddess, signer]
+    [nftAddress, content]
   );
 
   return { write };
