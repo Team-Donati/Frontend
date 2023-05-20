@@ -12,6 +12,7 @@ import Nft from "./pages/nft";
 import Home from "./pages/home";
 import Claim from "./pages/claim";
 import ExploreDetail from "./pages/exploreDetail";
+import Letter from "./pages/letter";
 
 type Network = {
   name: string;
@@ -143,19 +144,17 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/letter" element={<Letter />} />
           <Route path="/explore" element={<Explore />} />
           <Route
             path="/explore/:fundraiseId"
             element={<ExploreDetail ethereum={ethereum} />}
           />
-          <Route 
-            path="/nft/*" 
+          <Route
+            path="/nft/*"
             element={
-              <Nft 
-                currentAccount={currentAccount}
-                provider={donati_provider}
-              />
-            } 
+              <Nft currentAccount={currentAccount} provider={donati_provider} />
+            }
           />
           <Route
             path="/donate"
