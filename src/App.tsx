@@ -25,7 +25,7 @@ function App() {
 
   const { ethereum } = window;
   const [donati_provider, setDonatiProvider] = useState(
-    new ethers.JsonRpcProvider(process.env.REACT_APP_DEVNET_RPC_URL || "")
+    new ethers.providers.JsonRpcProvider(process.env.REACT_APP_DEVNET_RPC_URL || "")
   );
 
   const targetNetwork: Network = {

@@ -6,7 +6,7 @@ const Donate = ({ currentAccount, provider }: any) => {
   return (
     <div>
       donate page
-      <ClaimInfos currentAccout={currentAccount} provider={provider} />
+      <ClaimInfos currentAccount={currentAccount} provider={provider} />
     </div>
   );
 };
