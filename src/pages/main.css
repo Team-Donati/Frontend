@@ -1,0 +1,103 @@
+#mainwrap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: Black;
+}
+.main {
+  max-width: 390px;
+  height: 820px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.blank {
+  width: 390px;
+  height: 24px;
+  background-color: #fff;
+}
+.nav {
+  width: 390px;
+  height: 36px;
+  background-image: url(../../public/asset/nav.png);
+  background-position: 0 0;
+  background-size: cover;
+}
+.position_banner {
+  width: 390px;
+  height: 79px;
+  background-image: url(../../public/asset/position_banner.png);
+  background-position: 0 0;
+  background-size: cover;
+  margin-top: 12px;
+}
+.explore_btn {
+  width: 390px;
+  height: 28px;
+  background-image: url(../../public/asset/explore_btn.png);
+  background-position: 0 0;
+  background-size: cover;
+  margin-top: 31px;
+}
+.explore_menu {
+  width: 390px;
+  height: 38px;
+  background-image: url(../../public/asset/explore_menu.png);
+  background-position: 0 0;
+  background-size: cover;
+  margin-top: 26px;
+}
+.explore_banner {
+  width: 390px;
+  height: 360px;
+  background-image: url(../../public/asset/explore_banner.png);
+  background-position: 0 0;
+  background-size: cover;
+  margin-top: 16px;
+}
+.bottom_nav {
+  display: inline-flex;
+  width: 390px;
+  height: 55px;
+  position: absolute;
+  bottom: 47px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.nav_01 {
+  width: 168px;
+  height: 55px;
+  background-image: url(../../public/asset/bottom_nav_01.png);
+  background-position: 0 0;
+  background-size: cover;
+}
+.nav_02 {
+  width: 54px;
+  height: 55px;
+  background-image: url(../../public/asset/bottom_nav_02.png);
+  background-position: 0 0;
+  background-size: cover;
+}
+.nav_03 {
+  width: 168px;
+  height: 55px;
+  background-image: url(../../public/asset/bottom_nav_03.png);
+  background-position: 0 0;
+  background-size: cover;
+}
+.homein {
+  width: 390px;
+  height: 34px;
+  background-image: url(../../public/asset/homeindicator.png);
+  background-position: 0 0;
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 999;
+}
