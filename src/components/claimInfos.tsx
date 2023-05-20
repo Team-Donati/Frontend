@@ -4,7 +4,7 @@ import { useClaimInfoes } from "../hooks/useClaimInfoes";
 const ClaimInfos = ({ currentAccount, provider }: any) => {
   const claimList = useClaimInfoes(currentAccount, provider);
 
-  console.log("alkdjfkladsjf", claimList);
+  console.log("claim lists", claimList);
   return <div>ming...</div>;
 };
 
