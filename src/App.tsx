@@ -9,6 +9,7 @@ import Donate from "./pages/donate";
 import Explore from "./pages/explore";
 import Nft from "./pages/nft";
 import Home from "./pages/home";
+import Claim from "./pages/claim";
 
 type Network = {
   name: string;
@@ -141,6 +142,7 @@ function App() {
           <Route path="/explore/*" element={<Explore />} />
           <Route path="/nft/*" element={<Nft />} />
           <Route path="/donate/*" element={<Donate />} />
+          <Route path="/claim/*" element={<Claim />} />
           <Route path="/" element={<Home connectWallet={connectWallet} />} />
         </Routes>
       </BrowserRouter>
