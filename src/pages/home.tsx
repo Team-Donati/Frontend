@@ -1,11 +1,16 @@
 import "./main.css";
-const Home = ({ connectWallet }: any) => {
+const Home = ({ connectWallet, currentAccount }: any) => {
   return (
     <div id="mainwrap">
       <div className="main">
         <div className="blank"></div>
         <div className="nav"></div>
-        <div className="position_banner"></div>
+        {currentAccount != undefined ? (
+          <div className="position_banner_on"></div>
+        ) : (
+          <div className="position_banner_off" onClick={connectWallet}></div>
+        )}
+
         <a href="http://localhost:3000/explore">
           <div className="explore_btn"></div>
         </a>
@@ -13,6 +18,8 @@ const Home = ({ connectWallet }: any) => {
         <a href="http://localhost:3000/explore">
           <div className="explore_banner"></div>
         </a>
+        <div className="explore_banner"></div>
+        <div className="explore_banner"></div>
         <div className="bottom_nav">
           <a href="http://localhost:3000/explore">
             <div className="nav_01"></div>

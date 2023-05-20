@@ -167,7 +167,15 @@ function App() {
             }
           />
           <Route path="/claim/:fundraiseId" element={<Claim />} />
-          <Route path="/" element={<Home connectWallet={connectWallet} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                connectWallet={connectWallet}
+                currentAccount={currentAccount}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
