@@ -11,7 +11,7 @@ import Explore from "./pages/explore";
 import Nft from "./pages/nft";
 import Home from "./pages/home";
 import Claim from "./pages/claim";
-import NftDetail from "./pages/nftDetail";
+import ExploreDetail from "./pages/exploreDetail";
 
 type Network = {
   name: string;
@@ -25,7 +25,9 @@ function App() {
 
   const { ethereum } = window;
   const [donati_provider, setDonatiProvider] = useState(
-    new ethers.JsonRpcProvider(process.env.REACT_APP_DEVNET_RPC_URL || "")
+    new ethers.providers.JsonRpcProvider(
+      process.env.REACT_APP_DEVNET_RPC_URL || ""
+    )
   );
 
   const targetNetwork: Network = {
@@ -141,9 +143,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/explore/*" element={<Explore />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route
+            path="/explore/:fundraiseId"
+            element={<ExploreDetail ethereum={ethereum} />}
+          />
           <Route path="/nft/*" element={<Nft />} />
-          <Route path="/nft/detail/:tokenId" element={<NftDetail />} />
           <Route
             path="/donate"
             element={

@@ -4,7 +4,7 @@ import { useClaimInfoes } from "../hooks/useClaimInfoes";
 const ClaimInfos = ({ currentAccount, provider }: any) => {
   const claimList = useClaimInfoes(currentAccount, provider);
 
-  return <div>ming...</div>;
+  return <div>ming..</div>;
 };
 
 export default ClaimInfos;
