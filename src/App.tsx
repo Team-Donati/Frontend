@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
+
 import "./App.css";
 import { ethers } from "ethers";
 import ConnectButton from "./components/connectButton";
+import ClaimInfoes from "./components/claimInfoes";
 
 type Network = {
   name: string;
@@ -15,9 +17,10 @@ function App() {
   const [correctNetwork, setCorrectNetwork] = useState(true);
 
   const { ethereum } = window;
-  const [quinoa_provider, setQuinoaProvider] = useState(
+  const [donati_provider, setDonatiProvider] = useState(
     new ethers.JsonRpcProvider(process.env.REACT_APP_DEVNET_RPC_URL || "")
   );
+
 
   const targetNetwork: Network = {
     name: process.env.REACT_APP_NETWORK_NAME || "",
@@ -60,6 +63,8 @@ function App() {
       console.log("No authorized account found");
     }
   };
+
+  console.log("ming~~~!!", process.env.REACT_APP_DEVNET_RPC_URL)
 
   const connectWallet = async () => {
     try {
@@ -130,6 +135,10 @@ function App() {
   return (
     <div className="App">
       <ConnectButton connectWallet={connectWallet} />
+      <div>
+        address: {currentAccount}
+      </div>
+      <ClaimInfoes currentAccount={currentAccount} provider={donati_provider}  />
     </div>
   );
 }
