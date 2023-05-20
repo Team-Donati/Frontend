@@ -1,3 +1,4 @@
+import { ethers } from "ethers";
 import React, { useState, useEffect } from "react";
 import { useDonate } from "../hooks/useDonate";
 
@@ -9,34 +10,30 @@ const Donate = ({ fundraiserAddress, ethereum }: any) => {
   };
 
   const { donate } = useDonate(fundraiserAddress, donateAmount, ethereum);
-
+  console.log(donateAmount);
   const handleDonateBtn = async (
     donateAmount: string,
     fundraiserAddress: string
   ) => {
-    donate(donateAmount, fundraiserAddress);
+    donate(ethers.utils.parseUnits(donateAmount, 18), fundraiserAddress);
   };
 
   return (
     <div>
-      <div className="amount_inputbox_wrap">
-        <input
-          type="number"
-          name="st_id"
-          placeholder="0.00"
-          className="amount_inputbox"
-          value={donateAmount.toString()}
-          onChange={handleDonateAmountChange}
-          onKeyPress={(e) => !/[0-9|.]/.test(e.key) && e.preventDefault()}
-        />
-      </div>
-      <button
+      <div
+        className="donate_btn"
         onClick={() => {
           handleDonateBtn(donateAmount, fundraiserAddress);
         }}
-      >
-        donate
-      </button>
+      ></div>
+      <input
+        type="number"
+        id="donate_input"
+        name="donate_input"
+        placeholder="0.00"
+        value={String(donateAmount)}
+        onChange={handleDonateAmountChange}
+      ></input>
     </div>
   );
 };
