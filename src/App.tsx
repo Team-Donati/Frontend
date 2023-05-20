@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import { ethers } from "ethers";
 import ConnectButton from "./components/connectButton";
+
+import Donate from "./pages/donate";
+import Explore from "./pages/explore";
+import Nft from "./pages/nft";
+import Home from "./pages/home";
 
 type Network = {
   name: string;
@@ -54,6 +60,7 @@ function App() {
 
     if (accounts.length !== 0) {
       console.log("Found authorized Account: ", accounts[0]);
+      console.log(process.env.REACT_APP_NETWORK_ID);
       setCurrentAccount(accounts[0]);
       checkCorrectNetwork();
     } else {
@@ -129,7 +136,14 @@ function App() {
 
   return (
     <div className="App">
-      <ConnectButton connectWallet={connectWallet} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/explore/*" element={<Explore />} />
+          <Route path="/nft/*" element={<Nft />} />
+          <Route path="/donate/*" element={<Donate />} />
+          <Route path="/" element={<Home connectWallet={connectWallet} />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
