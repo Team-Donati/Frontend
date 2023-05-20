@@ -16,7 +16,6 @@ export const useLetters = (currentAccount: any, provider: any) => {
   }
 
   const [letterInfos, setLetterInfos] = useState<nftInfo[]>([]);
-  const [svgDataMing, setMing] = useState("");
 
   const GetLetters = async (currentAccount: any) => {
 
@@ -51,7 +50,6 @@ export const useLetters = (currentAccount: any, provider: any) => {
           provider
         );
 
-        console.log(await fundraiser.isDepositor(currentAccount));
         // 만약, depositor가 맞다면 -> nft 데이터 가져옴
         if(await fundraiser.isDepositor(currentAccount) == true) {
             // nft 이름
@@ -62,8 +60,6 @@ export const useLetters = (currentAccount: any, provider: any) => {
             const letterNum = await fundraiser.getTokenId(currentAccount);
             const svgData = await donaft.tokenURI(letterNum);
 
-            console.log("svgData", svgData);
-            
             resultInfos.push({
                 "name": letterName,
                 "writer": writerName,
@@ -72,7 +68,6 @@ export const useLetters = (currentAccount: any, provider: any) => {
         }
       }
 
-      console.log("nft infoes: ", resultInfos);
       setLetterInfos(resultInfos);
     } else {
       console.log("notfound");
@@ -83,5 +78,5 @@ export const useLetters = (currentAccount: any, provider: any) => {
     GetLetters(currentAccount);
   }, [currentAccount]);
 
-  return svgDataMing;
+  return letterInfos;
 };

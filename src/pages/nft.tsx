@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Letters from "../components/letters";
+import { useLetters } from "../hooks/useLetters";
 
 const Nft = ({ currentAccount, provider }: any) => {
+  const letterList = useLetters(currentAccount, provider);
+
   return (
     // <Letters currentAccount={currentAccount} provider={provider}></Letters>
     <div id="mainwrap">
@@ -12,7 +14,16 @@ const Nft = ({ currentAccount, provider }: any) => {
         </a>
         <div className="nft_filter"></div>
         <div className="nft_letter_wrap">
-          <div className="nft_letter"></div>
+          {
+            letterList.map((val, key) => {
+              return (
+                  <div className="nft_letter">
+                    <img src={val.letterUri}></img>
+                  </div>
+                )
+              })
+          }
+
         </div>
 
         <div className="homein"></div>
