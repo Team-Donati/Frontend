@@ -64,8 +64,6 @@ function App() {
     }
   };
 
-  console.log("ming~~~!!", process.env.REACT_APP_DEVNET_RPC_URL)
-
   const connectWallet = async () => {
     try {
       if (!mmInstalled) {
@@ -86,7 +84,7 @@ function App() {
       }
       console.log("Connected Network", chainId);
       console.log("Connected to Account: ", address[0]);
-      setCurrentAccount(address);
+      setCurrentAccount(address[0]);
     } catch (error) {
       console.log("Error connecting to metamask", error);
     }
