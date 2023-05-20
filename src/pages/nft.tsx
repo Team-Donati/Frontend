@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLetters } from "../hooks/useLetters";
+import { Link } from "react-router-dom";
 
 const Nft = ({ currentAccount, provider }: any) => {
   const letterList = useLetters(currentAccount, provider);
@@ -9,9 +10,9 @@ const Nft = ({ currentAccount, provider }: any) => {
     <div id="mainwrap">
       <div className="main">
         <div className="blank"></div>
-        <a href="http://localhost:3000">
+        <Link to="/">
           <div className="depth_nav"></div>
-        </a>
+        </Link>
         <div className="nft_filter"></div>
         <div className="nft_letter_wrap">
           {

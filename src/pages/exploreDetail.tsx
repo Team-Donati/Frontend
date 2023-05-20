@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Donate from "../components/donate";
+import { Link } from "react-router-dom";
 import "./main.css";
 
 const ExploreDetail = (ethereum: any) => {
@@ -9,9 +10,9 @@ const ExploreDetail = (ethereum: any) => {
   return (
     <div id="mainwrap">
       <div className="main">
-        <a href="http://localhost:3000/explore">
+        <Link to="/explore">
           <div className="exploredetail_back"></div>
-        </a>
+        </Link>
         <div className="exploredetail_img"></div>
         <Donate fundraiserAddress={fundraiseId} ethereum={ethereum} />
       </div>

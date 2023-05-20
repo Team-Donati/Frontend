@@ -1,4 +1,5 @@
 import "./main.css";
+import { Link } from "react-router-dom";
 const Home = ({ connectWallet, currentAccount }: any) => {
   return (
     <div id="mainwrap">
@@ -11,23 +12,23 @@ const Home = ({ connectWallet, currentAccount }: any) => {
           <div className="position_banner_off" onClick={connectWallet}></div>
         )}
 
-        <a href="http://localhost:3000/explore">
+        <Link to="/explore">
           <div className="explore_btn"></div>
-        </a>
+        </Link>
         <div className="explore_menu"></div>
-        <a href="http://localhost:3000/explore">
+        <Link to="/explore">
           <div className="explore_banner"></div>
-        </a>
+        </Link>
         <div className="bottom_nav">
-          <a href="http://localhost:3000/explore">
+          <Link to="/explore">
             <div className="nav_01"></div>
-          </a>
-          <a href="http://localhost:3000/nft">
+          </Link>
+          <Link to="/nft">
             <div className="nav_02"></div>
-          </a>
-          <a href="http://localhost:3000/donate">
+          </Link>
+          <Link to="/donate">
             <div className="nav_03"></div>
-          </a>
+          </Link>
         </div>
         <div className="homein"></div>
       </div>

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Write from "../components/write";
+import { Link } from "react-router-dom";
 
 const Letter = () => {
   return (
     <div id="mainwrap">
       <div className="main">
         <div className="blank"></div>
-        <a href="http://localhost:3000">
+        <Link to="/">
           <div className="depth_nav"></div>
-        </a>
+        </Link>
         <Write />
       </div>
     </div>
