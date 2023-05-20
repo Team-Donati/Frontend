@@ -10,7 +10,6 @@ const Letter = () => {
           <div className="depth_nav"></div>
         </a>
         <Write />
-        <div className="send_btn"></div>
       </div>
     </div>
   );
