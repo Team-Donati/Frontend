@@ -1,11 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { useClaimInfoes } from "../hooks/useClaimInfoes";
+import { useClaimInfos } from "../hooks/useClaimInfoes";
 
 const ClaimInfos = ({ currentAccount, provider }: any) => {
-  const claimList = useClaimInfoes(currentAccount, provider);
+  const claimList = useClaimInfos(currentAccount, provider);
 
   console.log("claim lists", claimList);
-  return <div>ming...</div>;
+  return (
+    <>
+    {
+      claimList.map((val, key) => {
+        return (
+          <div>
+            <p>{val.name}</p>
+            <p>{val.whitelist}</p>
+            <p>{val.amount} AVAX</p>
+            <p>{val.time}</p>
+          </div>
+        )
+      })
+    }
+    </>
+  );
 };
 
 export default ClaimInfos;

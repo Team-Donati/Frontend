@@ -148,7 +148,15 @@ function App() {
             path="/explore/:fundraiseId"
             element={<ExploreDetail ethereum={ethereum} />}
           />
-          <Route path="/nft/*" element={<Nft />} />
+          <Route 
+            path="/nft/*" 
+            element={
+              <Nft 
+                currentAccount={currentAccount}
+                provider={donati_provider}
+              />
+            } 
+          />
           <Route
             path="/donate"
             element={

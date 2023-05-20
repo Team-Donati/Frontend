@@ -5,20 +5,24 @@ import factory_abi from "../abis/Factory.json";
 import donaFT_abi from "../abis/DonaFT.json";
 import fundraiser_abi from "../abis/Fundraiser.json";
 import { ethers } from "ethers";
+import { Buffer } from "buffer";
 
-export const useClaimInfos = (currentAccount: any, provider: any) => {
-  interface calimInfo {
+export const useLetters = (currentAccount: any, provider: any) => {
+
+  interface nftInfo {
     name: string;
-    whitelist: string;
-    time: number;
-    amount: string;
+    writer: string;
+    letterUri: string;
   }
 
-  const [claimInfos, setClaimInfos] = useState<calimInfo[]>([]);
+  const [letterInfos, setLetterInfos] = useState<nftInfo[]>([]);
+  const [svgDataMing, setMing] = useState("");
 
-  const GetClaimInfos = async (currentAccount: any) => {
+  const GetLetters = async (currentAccount: any) => {
+
     // currentAddress가 기부한 contract 내역 불러옴
     const factoryAddr: string = process.env.REACT_APP_FACTORY_ADDRESS || "";
+
     if (currentAccount != undefined) {
 
       const factory = new ethers.Contract(
@@ -32,8 +36,8 @@ export const useClaimInfos = (currentAccount: any, provider: any) => {
       // nft 기부자 list들 불러오기
       const nftList = await factory.getAllNfts();
       const fundList = await factory.getAllFundraisers();
-
-      // 순회하면서 기부자 내역 확인
+      
+      // list 순회하면서 기부자의 nft 확인
       for (const idx in nftList) {
         const donaft = new ethers.Contract(
           nftList[idx],
@@ -47,41 +51,37 @@ export const useClaimInfos = (currentAccount: any, provider: any) => {
           provider
         );
 
-        // 만약, depositor가 맞다면 -> 해당 유저의 claim log 가져옴
+        console.log(await fundraiser.isDepositor(currentAccount));
+        // 만약, depositor가 맞다면 -> nft 데이터 가져옴
         if(await fundraiser.isDepositor(currentAccount) == true) {
-          const claimFilter = {
-            fromBlock: 10,
-            toBlock: 'latest',
-            address: fundList[idx],
-            topics: [ // Claimed event
-              "0x2f6639d24651730c7bf57c95ddbf96d66d11477e4ec626876f92c22e5f365e68",
-            ]
-          };
+            // nft 이름
+            const letterName = await donaft.name();
+            const writerName = (await donaft.writer()).writerName;
 
-          const logs = await provider.getLogs(claimFilter);
-          const writerName = (await donaft.writer()).writerName;
+            // letter svg 정보
+            const letterNum = await fundraiser.getTokenId(currentAccount);
+            const svgData = await donaft.tokenURI(letterNum);
 
-          for (let l = 0; l<logs.length; l++) {
+            console.log("svgData", svgData);
+            
             resultInfos.push({
-              "name": writerName,
-              "whitelist": '0x'+logs[l].topics[2].slice(26),
-              "time": parseInt(logs[l].topics[3], 16),
-              "amount": ethers.utils.formatEther((ethers.utils.defaultAbiCoder.decode(['uint'], logs[l].data)).toString())
+                "name": letterName,
+                "writer": writerName,
+                "letterUri": svgData
             })
-          }
         }
       }
 
-      console.log("claim infos: ", resultInfos);
-      setClaimInfos(resultInfos);
+      console.log("nft infoes: ", resultInfos);
+      setLetterInfos(resultInfos);
     } else {
       console.log("notfound");
     }
   };
 
   useEffect(() => {
-    GetClaimInfos(currentAccount);
+    GetLetters(currentAccount);
   }, [currentAccount]);
 
-  return claimInfos;
+  return svgDataMing;
 };
