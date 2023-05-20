@@ -9,7 +9,7 @@ const Write = () => {
   };
 
   const { write } = useWrite(
-    "0x43A0f68214a9E8E69D053f537a9AC1c107821AC8",
+    "0xDb7481A5E42a5f0bf95BAfb4A050BfeFfd115Bc6",
     content
   );
 
