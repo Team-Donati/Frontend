@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
+import ClaimInfos from "../components/claimInfos";
 
-const Donate = () => {
-  return <div>donate page</div>;
+const Donate = ({ currentAccount, provider }: any) => {
+  return (
+    <div>
+      donate page
+      <ClaimInfos currentAccount={currentAccount} provider={provider} />
+    </div>
+  );
 };
 
 export default Donate;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import logo from "./logo.svg";
+
 import "./App.css";
 import { ethers } from "ethers";
 import ConnectButton from "./components/connectButton";
@@ -9,6 +10,8 @@ import Donate from "./pages/donate";
 import Explore from "./pages/explore";
 import Nft from "./pages/nft";
 import Home from "./pages/home";
+import Claim from "./pages/claim";
+import ExploreDetail from "./pages/exploreDetail";
 
 type Network = {
   name: string;
@@ -21,8 +24,10 @@ function App() {
   const [correctNetwork, setCorrectNetwork] = useState(true);
 
   const { ethereum } = window;
-  const [quinoa_provider, setQuinoaProvider] = useState(
-    new ethers.JsonRpcProvider(process.env.REACT_APP_DEVNET_RPC_URL || "")
+  const [donati_provider, setDonatiProvider] = useState(
+    new ethers.providers.JsonRpcProvider(
+      process.env.REACT_APP_DEVNET_RPC_URL || ""
+    )
   );
 
   const targetNetwork: Network = {
@@ -88,7 +93,7 @@ function App() {
       }
       console.log("Connected Network", chainId);
       console.log("Connected to Account: ", address[0]);
-      setCurrentAccount(address);
+      setCurrentAccount(address[0]);
     } catch (error) {
       console.log("Error connecting to metamask", error);
     }
@@ -138,9 +143,22 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/explore/*" element={<Explore />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route
+            path="/explore/:fundraiseId"
+            element={<ExploreDetail ethereum={ethereum} />}
+          />
           <Route path="/nft/*" element={<Nft />} />
-          <Route path="/donate/*" element={<Donate />} />
+          <Route
+            path="/donate"
+            element={
+              <Donate
+                currentAccount={currentAccount}
+                provider={donati_provider}
+              />
+            }
+          />
+          <Route path="/claim/:fundraiseId" element={<Claim />} />
           <Route path="/" element={<Home connectWallet={connectWallet} />} />
         </Routes>
       </BrowserRouter>
