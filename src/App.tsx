@@ -23,7 +23,7 @@ function App() {
 
   const { ethereum } = window;
   const [quinoa_provider, setQuinoaProvider] = useState(
-    new ethers.JsonRpcProvider(process.env.REACT_APP_DEVNET_RPC_URL || "")
+    new ethers.providers.JsonRpcProvider(process.env.REACT_APP_DEVNET_RPC_URL || "")
   );
 
   const targetNetwork: Network = {
