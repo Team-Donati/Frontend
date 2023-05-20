@@ -160,7 +160,7 @@ function App() {
             }
           />
           <Route path="/claim/:fundraiseId" element={<Claim />} />
-          <Route path="/qr/:id1/:id2" element={<GenerateCode />} />
+          <Route path="/qr/:address/:amount" element={<GenerateCode />} />
           <Route path="/" element={<Home connectWallet={connectWallet} />} />
         </Routes>
       </BrowserRouter>
