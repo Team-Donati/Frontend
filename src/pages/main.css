@@ -251,3 +251,11 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 17px;
   text-indent: 42px;
 }
+.send_btn {
+  width: 390px;
+  height: 461px;
+  background-image: url(../../public/asset/send_btn.png);
+  background-position: 0 0;
+  background-size: cover;
+  margin-top: 0;
+}
