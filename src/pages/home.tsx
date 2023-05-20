@@ -18,8 +18,6 @@ const Home = ({ connectWallet, currentAccount }: any) => {
         <a href="http://localhost:3000/explore">
           <div className="explore_banner"></div>
         </a>
-        <div className="explore_banner"></div>
-        <div className="explore_banner"></div>
         <div className="bottom_nav">
           <a href="http://localhost:3000/explore">
             <div className="nav_01"></div>
